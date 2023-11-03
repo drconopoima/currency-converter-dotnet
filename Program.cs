@@ -4,7 +4,19 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        CurrencyCode code = CurrencyCode.USD;
-        Console.WriteLine($"{code.GetCode()}");
+        CurrencyCode first_currency=CurrencyCode.NONE;
+        bool correct = false;
+        while (!correct) {
+            try {
+                Console.Write("Please introduce initial currency: "); 
+                string first_currency_string = Console.ReadLine();
+                // first_currency = first_currency.FromText(first_currency_string);
+                correct = true;
+            }
+            catch {
+                // Console.WriteLine($"Could not interpret value {first_currency_string} as a valid currect");
+            }
+        };
+        Console.WriteLine($"Your choice for initial currency is {first_currency.GetCode()}");
     }
 }
