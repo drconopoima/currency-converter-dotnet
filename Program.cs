@@ -10,7 +10,7 @@ internal class Program
             try {
                 Console.Write("Please introduce initial currency: "); 
                 string first_currency_string = Console.ReadLine();
-                // first_currency = first_currency.FromText(first_currency_string);
+                first_currency = CurrencyCodeExtensions.FromText(first_currency_string);
                 correct = true;
             }
             catch {

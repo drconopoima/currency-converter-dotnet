@@ -174,17 +174,39 @@ public static class CurrencyCodeExtensions
     };
     public static String GetCode(this CurrencyCode code)
     {
-        return codesArray[(int) code];
+        return Enum.GetName(typeof(CurrencyCode), (int)code);
     }
+    /// <summary>
+    /// CurrencyCode FromText(string text): Enum variant initializer from
+    ///    input parameter 'text' case insensitive 3-letter currency code
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns>
+    /// enum CurrencyCode.'text', if 'text' is an implemented variant.
+    ///    enum CurrencyCode.NONE if currency option 'text' isn't available.
+    ///    Call GetOptions() to view all implemented variants.
+    /// </returns>
+    //                                
     public static CurrencyCode FromText(string text) {
         for (int i=0; i<codesArray.Length; i++)
         {
-            if ( codesArray[i] == text ) 
+            if ( codesArray[i] == text.ToUpper() ) 
             {
                 return (CurrencyCode) i;
             }
         };
         return CurrencyCode.NONE;
+    }
+    /// <summary>
+    /// string[] GetOptions(): Retrieve implemented enum variant names.
+    /// </summary>
+    /// <returns>
+    /// string[] GetOptions(): Array with elements 1..N implemented variant names
+    ///    sorted in alphabetical order. Element 0 is uninitialized value 'NONE'.
+    /// </returns>
+    public static string[] GetOptions()
+    {
+        return codesArray;
     }
 }
 
