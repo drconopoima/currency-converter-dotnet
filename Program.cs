@@ -17,6 +17,6 @@ internal class Program
                 // Console.WriteLine($"Could not interpret value {first_currency_string} as a valid currect");
             }
         };
-        Console.WriteLine($"Your choice for initial currency is {first_currency.GetCode()}");
+        Console.WriteLine($"Your choice for initial currency is {CurrencyCodeExtensions.GetName(first_currency)} ({CurrencyCodeExtensions.GetCode(first_currency)})");
     }
 }
